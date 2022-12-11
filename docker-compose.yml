@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    image: traefik:v3.0.0-beta2
+    command: --api.insecure=true --providers.docker --log.level=DEBUG
+    ports:
+      - "80:80"
+      - "8080:8080" # The Web UI (enabled by --api.insecure=true)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  mooncar:
+    build:
+      context: .
+      dockerfile: docker/backend.dockerfile
+    ports:
+      - "50051:50051"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mooncar.rule=Host(`mooncar.docker.localhost`)"
+      - "traefik.http.services.mooncar.loadbalancer.server.scheme=h2c"
+      - "traefik.http.middlewares.mooncar.grpcweb.allowOrigins=*"
