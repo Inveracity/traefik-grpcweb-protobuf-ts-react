@@ -4,6 +4,8 @@
 
 I'm learning how to use grpc-web with traefik now that it's out in Traefik 3.0-Beta
 
+Asked for help here: [community.traefik.io/t/getting-started-with-the-grpcweb-middleware/16778](https://community.traefik.io/t/getting-started-with-the-grpcweb-middleware/16778)
+
 # Setup
 
 Built on:
