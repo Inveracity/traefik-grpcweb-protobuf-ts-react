@@ -20,4 +20,5 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.mooncar.rule=Host(`mooncar.docker.localhost`)"
       - "traefik.http.services.mooncar.loadbalancer.server.scheme=h2c"
-      - "traefik.http.middlewares.mooncar.grpcweb.allowOrigins=*"
+      - "traefik.http.middlewares.mooncar-grpc.grpcWeb.allowOrigins=*"
+      - "traefik.http.routers.mooncar.middlewares=mooncar-grpc"

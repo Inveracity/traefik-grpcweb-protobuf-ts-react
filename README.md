@@ -1,8 +1,6 @@
 # Traefik + gRPC-Web + Protobuf-ts + React (doesn't work)
 
-> :warning: this doesn't work currently.
-
-I'm learning how to use grpc-web with traefik now that it's out in Traefik 3.0-Beta
+I'm learning how to use grpc-web with traefik now that it's out in Traefik 3.0.0-Beta.2
 
 Asked for help here: [community.traefik.io/t/getting-started-with-the-grpcweb-middleware/16778](https://community.traefik.io/t/getting-started-with-the-grpcweb-middleware/16778)
 
@@ -55,7 +53,7 @@ go run internal/client.go --addr=mooncar.docker.localhost:80 --name=john
 # 2099/01/01 10:11:12 Greeting: Hello john
 ```
 
-# This is where things don't work for me
+# Frontend
 
 Run the frontend
 
@@ -65,18 +63,4 @@ npm install
 npm run dev
 ```
 
-click the button `click me`
-
-and the reverse proxy says
-
-```
-mooncar-reverse-proxy-1  | 2022-12-11T20:20:00Z DBG github.com/traefik/traefik/v2/pkg/server/service/proxy.go:119 >
-500 Internal Server Error error="stream error: stream ID 3; PROTOCOL_ERROR; received from peer"
-```
-
-```
-Access to fetch at 'http://mooncar.docker.localhost/helloworld.Greeter/SayHello' from origin 'http://localhost:5173' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
-grpc-web-transport.js:123          POST http://mooncar.docker.localhost/helloworld.Greeter/SayHello net::ERR_FAILED
-helloworld.ts:18 RpcError: Failed to fetch
-    at grpc-web-transport.js:183:25
-```
+click the button `click me` and see the response in the inspector
