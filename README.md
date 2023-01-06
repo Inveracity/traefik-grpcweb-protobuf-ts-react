@@ -42,13 +42,13 @@ sh scripts/gen.sh
 Add the hostname below to `/etc/hosts`
 
 ```
-127.0.0.1 mooncar.docker.localhost
+127.0.0.1 mooncar.nomad.localhost
 ```
 
 Run the go client, and hopefully the gRPC request should go through traefik
 
 ```sh
-go run internal/client.go --addr=mooncar.docker.localhost:80 --name=john
+go run internal/client.go --addr=mooncar.nomad.localhost:80 --name=john
 
 # 2099/01/01 10:11:12 Greeting: Hello john
 ```
